@@ -81,3 +81,26 @@ it('should remove data from db', async () => {
 });
 
 
+it('should update data', async () => {
+
+  const postData = {"description":"Desc update","notification":true,"time":"2019-04-07T00:00","title":"Title"};
+  const postDataUpdated = {"description":"Description","notification":true,"time":"2019-04-07T00:00","title":"Titles"};
+
+  //create post;
+  const model = new Event(postData);
+  const newEvent = await model.save();
+  const id = newEvent._id;
+
+  const response = await supertest(app)
+    .put(`/api/event/${id}`)
+    .send(postDataUpdated)
+    .set('Accept', 'application/json')
+    .expect(200);
+
+  const finded = await Event.find(postDataUpdated);
+  expect(response.status).toEqual(200);
+  expect(finded.length).toEqual(0);
+
+  await Event.deleteOne(postDataUpdated)
+
+});
