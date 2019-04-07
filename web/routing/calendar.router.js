@@ -5,7 +5,7 @@ const calendar = require('../services/calendar');
 router.get('/api/calendar', (request, response) => {
   response.status(200).json({
     "data":
-      calendar(new Date())
+      calendar(request.params.month)
 
 
   })
