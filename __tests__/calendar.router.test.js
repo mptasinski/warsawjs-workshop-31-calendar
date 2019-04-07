@@ -19,9 +19,7 @@ it('api calendar shoud return HTTP OK', async () => {
   const response = await supertest(app)
     .get('/api/calendar?month=2019-04')
     .expect(200);
-
-
-  expect(response.body.status).toEqual('ok');
+  
   expect(response.status).toEqual(200);
 
 });
