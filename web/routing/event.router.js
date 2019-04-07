@@ -14,6 +14,10 @@ const removeEvent = async (id) => {
   return  await Event.deleteOne({ _id: id });
 };
 
+const updateEvent = async (data, id) => {
+  return await Event.updateOne({...data, _id: id})
+};
+
 router.post('/api/event', async (request, response) => {
 
   if (request.body) {
@@ -46,13 +50,9 @@ router.delete('/api/event/:id', async (request, response) => {
 
 });
 
-module.exports = (app) => {
-  app.use(router);
-};
-
 router.put('/api/event/:id', async (request, response) => {
 
-  const result = await saveEvent(request.params.id);
+  const result = await updateEvent(request.body, request.params.id);
 
   if (result) {
     response.status(200).json({

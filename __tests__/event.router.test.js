@@ -99,7 +99,7 @@ it('should update data', async () => {
 
   const finded = await Event.find(postDataUpdated);
   expect(response.status).toEqual(200);
-  expect(finded.length).toEqual(0);
+  expect(finded.length).toEqual(1);
 
   await Event.deleteOne(postDataUpdated)
 
