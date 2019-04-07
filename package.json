@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine __tests__/**.js",
+    "test:watch": "nodemon --exec 'jasmine \"tests/*.test.js\"'",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "jasmine": "3.4.0",
-    "supertest": "4.0.2"
+    "supertest": "4.0.2",
+    "ajv": "6.10.0"
   }
 }

@@ -2,16 +2,14 @@ const express = require('express');
 const router = require('./../web/routing/base.router');
 const supertest = require('supertest');
 
-it('shoud run', async (done) => {
+it('shoud run', async () => {
   const app = express();
   router(app);
 
   const response = await supertest(app)
     .get('/')
-    .then((response) => {
-      expect(response.body.status).toEqual('ok');
-    });
+    .expect(200);
 
-  done(response);
+  expect(response.body.status).toEqual('ok');
 
 });
