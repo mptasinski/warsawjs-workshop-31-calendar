@@ -49,3 +49,21 @@ router.delete('/api/event/:id', async (request, response) => {
 module.exports = (app) => {
   app.use(router);
 };
+
+router.put('/api/event/:id', async (request, response) => {
+
+  const result = await saveEvent(request.params.id);
+
+  if (result) {
+    response.status(200).json({
+      id: result
+    })
+  } else {
+    response.status(500)
+  }
+
+});
+
+module.exports = (app) => {
+  app.use(router);
+};
