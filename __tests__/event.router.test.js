@@ -25,15 +25,6 @@ beforeEach(() => {
   ajv = new Ajv();
 });
 
-it('api event add shoud return HTTP OK', async () => {
-
-  const response = await supertest(app)
-    .post('/api/event')
-    .expect(200);
-
-  expect(response.status).toEqual(200);
-
-});
 
 it('event shoud return porpper data', async () => {
 
