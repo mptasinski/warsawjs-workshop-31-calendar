@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine __tests__/**.js",
-    "test:watch": "nodemon --exec 'jasmine \"tests/*.test.js\"'",
     "dev": "nodemon index.js"
   },
   "repository": {

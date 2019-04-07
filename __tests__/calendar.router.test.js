@@ -19,7 +19,7 @@ it('api calendar shoud return HTTP OK', async () => {
   const response = await supertest(app)
     .get('/api/calendar?month=2019-04')
     .expect(200);
-  
+
   expect(response.status).toEqual(200);
 
 });
@@ -34,15 +34,6 @@ it('calendar shoud return porpper data', async () => {
   const validate = validator(response.body);
 
   expect(validate).toBe(true);
-  expect(validate.errors).toBeNull();
+  expect(validator.errors).toBeNull();
 
 });
-
-// it('api calendar day shoud return HTTP OK', async () => {
-//   const response = await supertest(app)
-//     .get('/api/day?date=2019-04-07')
-//     .expect(200);
-//
-//   expect(response.body.status).toEqual('ok');
-//
-// });
