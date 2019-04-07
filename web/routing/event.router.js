@@ -23,6 +23,20 @@ router.post('/api/event', async (request, response) => {
 
 });
 
+router.delete('/api/event', async (request, response) => {
+
+  const result = await saveEvent(request.body);
+
+  if (result) {
+    response.status(200).json({
+      id: result
+    })
+  } else {
+    response.status(500)
+  }
+
+});
+
 module.exports = (app) => {
   app.use(router);
 };
