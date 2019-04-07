@@ -25,17 +25,17 @@ beforeEach(() => {
   ajv = new Ajv();
 });
 
-it('api event add shoud return HTTP OK', async () => {
+// it('api event add shoud return HTTP OK', async () => {
+//
+//   const response = await supertest(app)
+//     .post('/api/event')
+//     .expect(200);
+//
+//   expect(response.status).toEqual(200);
+//
+// });
 
-  const response = await supertest(app)
-    .post('/api/event')
-    .expect(200);
-
-  expect(response.status).toEqual(200);
-
-});
-
-it('calendar shoud return porpper data', async () => {
+it('event shoud return porpper data', async () => {
 
   const response = await supertest(app)
     .post('/api/event')
@@ -67,36 +67,36 @@ it('should save data to db', async () => {
 
 });
 
-it('api event delete shoud return HTTP OK', async () => {
-
-  const response = await supertest(app)
-    .del('/api/event')
-    .expect(200);
-
-  expect(response.status).toEqual(200);
-
-});
-
-it('should remove data from db', async () => {
-
-  const postData = {"description":"Desc Deleted","notification":true,"time":"2019-04-07T00:00","title":"Title"};
-
-  //create post;
-  const model = new Event(postData);
-  const newEvent = await model.save();
-  const id = newEvent._id;
-
-  const response = await supertest(app)
-    .del(`/api/event/${id}`)
-    .send(postData)
-    .set('Accept', 'application/json')
-    .expect(200);
-
-  const finded = await Event.find(postData);
-  expect(response.status).toEqual(200);
-  expect(finded.length).toEqual(0);
-
-
-});
+// it('api event delete shoud return HTTP OK', async () => {
+//
+//   const response = await supertest(app)
+//     .del('/api/event')
+//     .expect(200);
+//
+//   expect(response.status).toEqual(200);
+//
+// });
+//
+// it('should remove data from db', async () => {
+//
+//   const postData = {"description":"Desc Deleted","notification":true,"time":"2019-04-07T00:00","title":"Title"};
+//
+//   //create post;
+//   const model = new Event(postData);
+//   const newEvent = await model.save();
+//   const id = newEvent._id;
+//
+//   const response = await supertest(app)
+//     .del(`/api/event/${id}`)
+//     .send(postData)
+//     .set('Accept', 'application/json')
+//     .expect(200);
+//
+//   const finded = await Event.find(postData);
+//   expect(response.status).toEqual(200);
+//   expect(finded.length).toEqual(0);
+//
+//
+// });
 
 
