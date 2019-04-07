@@ -11,8 +11,7 @@ const saveEvent = async (data) => {
 };
 
 const removeEvent = async (id) => {
-  const response = await Event.deleteOne({ id });
-  return response._id;
+  return  await Event.deleteOne({ _id: id });
 };
 
 router.post('/api/event', async (request, response) => {
@@ -33,9 +32,9 @@ router.post('/api/event', async (request, response) => {
 
 });
 
-router.delete('/api/event', async (request, response) => {
+router.delete('/api/event/:id', async (request, response) => {
 
-  const result = await removeEvent(request.body.id);
+  const result = await removeEvent(request.params.id);
 
   if (result) {
     response.status(200).json({
