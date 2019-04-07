@@ -22,7 +22,8 @@
     "dotenv": "7.0.0",
     "nodemon": "1.18.10",
     "dayjs": "1.8.12",
-    "body-parser": "1.18.3"
+    "body-parser": "1.18.3",
+    "mongoose": "5.4.22"
   },
   "devDependencies": {
     "jasmine": "3.4.0",

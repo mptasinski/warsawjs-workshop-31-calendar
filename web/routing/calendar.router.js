@@ -6,8 +6,6 @@ router.get('/api/calendar', (request, response) => {
   response.status(200).json({
     "data":
       calendar(request.params.month)
-
-
   })
 });
 

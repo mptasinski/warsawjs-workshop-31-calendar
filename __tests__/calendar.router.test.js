@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const bodyParser = require('body-parser');
 const router = require('./../web/routing/calendar.router');
 const supertest = require('supertest');
 const Ajv = require('ajv');
@@ -11,6 +11,8 @@ let ajv = null;
 beforeEach(() => {
   app = express();
   router(app);
+
+  app.use(bodyParser.json());
   ajv = new Ajv();
 });
 
