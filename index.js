@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const router = require('./web/routing/base.router');
+const router = require('./web/routing/calendar.router');
 require('dotenv').config({
   path: path.join(__dirname, 'config', 'app.env')
 });
